@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oncology Reference Guide</title>
+    <link rel="stylesheet" href="/main.css"/>
+</head>
+<body>
+    <% if (user) { %>
+        <h1>Welcome to Oncology Medication Reference Guide App, <%= user.username %>!</h1>
+        <p>
+          <a href="/auth/sign-out">
+            <button class="button" type="submit">
+              Sign out
+            </button>
+          </a>
+        </p>
+      <% } else { %>
+        <h1>Welcome to Oncology Medication Reference Guide App, Guest!</h1>
+        <p>
+          You can organize, store, and quickly reference information about different medications that you use as a nurse.
+          Come on in! 
+        </p>
+        <p>
+          <a href="/auth/sign-up">
+            <button class="button" type="submit">
+              Sign up
+            </button>
+          </a> 
+          <br>
+          <br>
+          <br>
+          <a href="/auth/sign-in">
+            <button class="button" type="submit">
+              Sign in
+            </button>
+          </a>
+        </p>
+      <% } %>
+</body>
+</html>
