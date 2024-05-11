@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/main.css"/>
 </head>
 <body>
-    <% if (user) { %>
+  <% if (user) { %>
+    <%- include('./partials/_nav.ejs') %>
         <h1>Welcome to Oncology Medication Reference Guide App, <%= user.username %>!</h1>
         <p>
           <a href="/auth/sign-out">

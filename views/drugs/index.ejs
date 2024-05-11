@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="/main.css" />
+</head>
+<body>
+    <%- include('../partials/_nav.ejs') %>
+    <div class="text">
+        <h1>Here is the library of all your drugs</h1>
+        <ul>
+            <% drugs.forEach(drug => { %>
+            <li><a href="/drugs/<%= drug._id %>"> <%= drug.genericName %> </a></li>  
+        <% });%>
+        </ul>
+        <a href="/drugs/new"> 
+            <button class="button" type="submit">Add a drug to the library</button>
+        </a>
+    </div>
+</body>
+</html>

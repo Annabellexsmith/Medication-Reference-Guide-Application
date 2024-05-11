@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Edit <%= drug.genericName %></title>
+    <link rel="stylesheet" href="/main.css" />
+</head>
+<body>
+    <div class="text">
+        <%- include('../partials/_nav.ejs') %>
+        <h1> Edit Your Medication Profile</h1>
+        <form class="form" action="/drugs/<%= drug.id %>?_method=PUT" method="POST">
+            <div>
+                <label for="genericName">Generic Name:</label>
+                <input type="text" name="genericName" id="genericName" value="<%= drug.genericName %>">
+                <br>
+            </div>
+            <div>
+                <label for="tradeName">Trade Name:</label>
+                <input type="text" name="tradeName" id="tradeName" value="<%= drug.tradeName %>">
+                <br>
+            </div>
+            <div>
+                <label for="reactive">Potential for a hypersenitive  reaction? </label>
+                <input type="checkbox" name="reactive" id="reactive" value=" <%= drug.reactive %>"
+                 ">
+                <br>
+            </div>
+            <div>
+                <label for="notes">Notes:</label>
+                <input type="text" name="notes" id="notes" value=" <%= drug.notes %>">
+                <br>
+            </div>
+            <!-- <div>
+                <label for="indications">Indications:</label>
+                <select type="text" name="indications" id="indications" multiple>
+                    <option value="ovarian">Ovarian</option>
+                    <option value="gu">GU</option>
+                    <option value="gastric">GI</option>
+                    <option value="breast">Breast</option>
+                    <option value="Melanoma">Melanoma</option>
+                </select>
+                <br>
+            </div> -->
+            <button type="submit">Update Medication</button>
+        </form>
+            <a href="/drugs/index">Back to library</a>
+        </div>
+    </div>
+</body>
+</html>

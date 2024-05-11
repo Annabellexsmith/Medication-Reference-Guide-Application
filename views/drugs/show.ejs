@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= drug.genericName %></title>
+    <link rel="stylesheet" href="/main.css" />
+</head>
+<body>
+    <%- include('../partials/_nav.ejs') %>
+    <h1> <%= drug.genericName %> </h1>
+    <p>
+        Trade name: <%= drug.tradeName %>
+        <br>
+        Potential for a hypersenitive reaction? <input type="checkbox" <% if (drug.reactive) { %> checked <% } %> disabled>
+        <br>
+        Notes: <%= drug.notes %>
+        <br> 
+        Indications: <%= drug.indications %>
+    </p>
+    
+    <form class="form" action="/drugs/<%= drug.id %>/edit" method="GET">
+        <button type="submit">Edit Medication</button>
+    </form>
+    <form class="form" action="/drugs/<%= drug.id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Medication</button>
+    </form>
+</body>
+</html>
