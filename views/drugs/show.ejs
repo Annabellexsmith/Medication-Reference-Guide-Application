@@ -16,7 +16,12 @@
         <br>
         Notes: <%= drug.notes %>
         <br> 
-        Indications: <%= drug.indications.typeOfCancer %>
+        Indications: <% drug.indications.forEach ((indication) => { %>
+            <% if (drug.indications.length > 1) { %>
+                    <%= indication.typeOfCancer %>,
+                <% } else %>
+                    <%= indication.typeOfCancer %>
+                <%}) %> 
     </p>
     
     <form class="form" action="/drugs/<%= drug.id %>/edit" method="GET">
