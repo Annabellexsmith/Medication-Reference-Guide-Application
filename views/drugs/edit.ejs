@@ -32,18 +32,15 @@
                 <input type="text" name="notes" id="notes" value=" <%= drug.notes %>">
                 <br>
             </div>
-            <!-- <div>
+            <div>
                 <label for="indications">Indications:</label>
-                <select type="text" name="indications" id="indications" multiple>
-                    <option value="ovarian">Ovarian</option>
-                    <option value="gu">GU</option>
-                    <option value="gastric">GI</option>
-                    <option value="breast">Breast</option>
-                    <option value="Melanoma">Melanoma</option>
+                <select name="indications" id="indications" multiple class="selectBox">
+                    <% drug.indications.forEach (indication => { %>
+                        <option value="<%= indication._id %>"> <%= indication.typeOfCancer %> </option>
+                        <% }); %>
                 </select>
-                <br>
-            </div> -->
-            <button type="submit">Update Medication</button>
+            </div>
+            <button class="button" type="submit">Update Medication</button>
         </form>
             <a href="/drugs/index">Back to library</a>
         </div>

@@ -13,6 +13,8 @@ body {
 .button {
     text-align: center;
     background-color: deeppink;
+    border-radius: 25px;
+    font-size: medium;
 }
 
 .selectBox{

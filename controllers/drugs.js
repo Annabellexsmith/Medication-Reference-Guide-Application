@@ -13,7 +13,6 @@ router.get('/index', async (req, res) => {
 //Create
 router.get('/new', async (req, res) => {
     const indications = await Indication.find()
-    console.log(indications)
     res.render('drugs/new', { indications });
 });
 
@@ -25,7 +24,11 @@ router.post('/', async (req, res)=> {
         req.body.reactive = false;
     }
     req.body.owner = req.session.user._id
-    await Drug.create(req.body);
+    newDrug = await Drug.create(req.body);
+    newDrug.save().then(
+        
+    )
+    
     res.redirect('drugs/index');
 })
 
@@ -39,7 +42,8 @@ router.get('/:drugId', async (req, res) => {
 
 //Edit - individual medicaiton based on id
 router.get('/:drugId/edit', async (req, res) => {
-    const drugId = await Drug.findById(req.params.drugId);
+    const drugId = await Drug.findById(req.params.drugId)
+    .populate('indications')
     res.render('drugs/edit', { drug: drugId});
 })
 
@@ -53,7 +57,6 @@ router.put('/:drugId', async (req, res) => {
     req.body.owner = req.session.user._id
     const updatedDrug = await Drug.findByIdAndUpdate(
         req.params.drugId,
-        req.body,
         { new : true }
     )
     res.render('drugs/show', { drug : updatedDrug })

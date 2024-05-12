@@ -1,7 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user.js');
+const Drug = require('../models/drug.js')
 
+
+router.get('/', (req, res) => {
+    res.render('indication/new')
+})
+
+router.post('/:drugId/indications/:userId', async (req, res) => {
+    try {
+        const newIndication = await Drug.findById(req.params.drugId);
+        newIndication.indications.push(req.params.typeOfCancer);
+        await newIndication.save()
+        res.redirect(`drugs/${req.params.drugId}`, {drugs: drug })
+    } catch (error) {
+        console.log(error)
+        res.redirect('/indications')
+    }
+})
 // Favoriting route
 // router.post('/:listingId/favorited-by/:userId', async (req, res) => {
 //     try {

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/main.css" />
+    <title>New Indication</title>
+</head>
+<body>
+    <dialog open id="updateIndications">
+        <form action="'/<%= drugs._id %>/indications/?_method=PUT" method="POST">
+        <p>Add a new indication:</p>
+        <label for="typeOfCancer">Type of cancer:</label>
+        <input type="text" name="typeOfCancer" id="typeOfCancer">
+        <button class="button" type="reset">Cancel</button>
+        <button class="button" type="submit">Add</button>
+    </dialog>
+</body>
+</html>

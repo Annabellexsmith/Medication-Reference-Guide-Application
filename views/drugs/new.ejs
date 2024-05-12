@@ -17,7 +17,7 @@
         </div>
         <div>
             <label for="tradeName">Trade Name:</label>
-            <input type="text" name="tradeName" id="tradeName">
+            <input type="text" name="tradeName" id="tradeName" required>
             <br>
         </div>
         <div>
@@ -27,7 +27,7 @@
         </div>
         <div>
             <label for="notes">Notes:</label>
-            <input type="text" name="notes" id="notes">
+            <input type="text" name="notes" id="notes" required>
             <br>
         </div>
         <div>
@@ -42,6 +42,8 @@
         </div>
         <button type="submit">Add medication</button>
     </form>
-
+    <form class="form" action="../indications" method="GET">
+        <button > Add new indication</button>
+    </form>
 </body>
 </html>
