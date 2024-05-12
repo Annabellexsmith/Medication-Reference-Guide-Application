@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user.js');
-const Indications = require('../models/indication.js');
+const Indication = require('../models/indication.js');
 const Drug = require('../models/drug.js');
-const drug = require('../models/drug.js');
 
 //Index
 router.get('/index', async (req, res) => {
@@ -13,7 +12,9 @@ router.get('/index', async (req, res) => {
 
 //Create
 router.get('/new', async (req, res) => {
-    res.render('drugs/new');
+    const indications = await Indication.find()
+    console.log(indications)
+    res.render('drugs/new', { indications });
 });
 
 //POST
@@ -30,8 +31,8 @@ router.post('/', async (req, res)=> {
 
 // SHOW- individual medication based on id
 router.get('/:drugId', async (req, res) => {
-    const drugId = await Drug.findById(req.params.drugId);
-    // let reactiveValue = (!drugId.reactive) ? 'off' : 'on'
+    const drugId = await Drug.findById(req.params.drugId)
+    .populate('indications');
     res.render('drugs/show', { drug: drugId });
 })
 
@@ -50,7 +51,7 @@ router.put('/:drugId', async (req, res) => {
         req.body.reactive= false;
     }
     req.body.owner = req.session.user._id
-    const updatedDrug = await drug.findByIdAndUpdate(
+    const updatedDrug = await Drug.findByIdAndUpdate(
         req.params.drugId,
         req.body,
         { new : true }

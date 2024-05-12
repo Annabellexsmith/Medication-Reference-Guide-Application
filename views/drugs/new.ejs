@@ -21,7 +21,7 @@
             <br>
         </div>
         <div>
-            <label for="reactive">Potential for a hypersenitive  reaction?</label>
+            <label for="reactive">Potential for a hypersensitivity reaction?</label>
             <input type="checkbox" name="reactive" id="reactive">
             <br>
         </div>
@@ -30,17 +30,16 @@
             <input type="text" name="notes" id="notes">
             <br>
         </div>
-        <!-- <div>
+        <div>
             <label for="indications">Indications:</label>
-            <select type="text" name="indications" id="indications" multiple>
-                <option value="ovarian">Ovarian</option>
-                <option value="gu">GU</option>
-                <option value="gastric">GI</option>
-                <option value="breast">Breast</option>
-                <option value="Melanoma">Melanoma</option>
+            <select name="indications" id="indications" multiple class="selectBox">
+                <% indications.forEach (indication => { %>
+                    <option value="<%= indication._id %>"> <%= indication.typeOfCancer %> </option>
+                <% }); %>
             </select>
             <br>
-        </div> -->
+            <br>
+        </div>
         <button type="submit">Add medication</button>
     </form>
 

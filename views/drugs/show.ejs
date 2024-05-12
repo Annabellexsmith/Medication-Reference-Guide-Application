@@ -16,7 +16,7 @@
         <br>
         Notes: <%= drug.notes %>
         <br> 
-        Indications: <%= drug.indications %>
+        Indications: <%= drug.indications.typeOfCancer %>
     </p>
     
     <form class="form" action="/drugs/<%= drug.id %>/edit" method="GET">
