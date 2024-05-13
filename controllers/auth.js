@@ -1,8 +1,6 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const express = require('express');
-const user = require('../models/user');
-const { validateHeaderName } = require('http');
 const router = express.Router();
 
 //sign up route
@@ -78,7 +76,7 @@ router.post('/sign-in', async (req, res) => {
         _id: userInDatabase._id
       };
   
-      res.redirect('/');
+      res.redirect('/drugs/index');
     } catch (error) {
       console.log(error);
       res.redirect('/');

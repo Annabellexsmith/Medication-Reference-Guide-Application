@@ -33,27 +33,19 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
   }));
-  app.use(passUserToView);
-app.use(express.static('public'))
+app.use(passUserToView);
+app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/', (req, res) => {
-    res.render("index", {user: req.session.user})
-})
+    res.render("index", {user: req.session.user});
+});
 
 app.use('/auth', authController);
 app.use(isSignedIn);
 app.use('/drugs', drugsController);
 app.use('/indications', indicationController);
 
-
-
-
-
-
-
-
-app.use('/auth', authController);
 
 
 

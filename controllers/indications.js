@@ -8,12 +8,12 @@ router.get('/', (req, res) => {
     res.render('indication/new')
 })
 
-router.post('/:drugId/indications/:userId', async (req, res) => {
+router.post('/:drugId/indications/', async (req, res) => {
     try {
         const newIndication = await Drug.findById(req.params.drugId);
         newIndication.indications.push(req.params.typeOfCancer);
         await newIndication.save()
-        res.redirect(`drugs/${req.params.drugId}`, {drugs: drug })
+        res.redirect(`drugs/${req.params.drugId}`, {drug: drug })
     } catch (error) {
         console.log(error)
         res.redirect('/indications')

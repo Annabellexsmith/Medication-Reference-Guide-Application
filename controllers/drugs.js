@@ -18,6 +18,7 @@ router.get('/new', async (req, res) => {
 
 //POST
 router.post('/', async (req, res)=> {
+try { 
     if (req.body.reactive) {
         req.body.reactive = true;
     } else {
@@ -25,11 +26,13 @@ router.post('/', async (req, res)=> {
     }
     req.body.owner = req.session.user._id
     newDrug = await Drug.create(req.body);
-    newDrug.save().then(
-        
-    )
-    
     res.redirect('drugs/index');
+
+       //res.redirect('drugs/index');
+} catch (error) {
+    console.log(`ERROR`)
+    res.redirect(`/`)
+}
 })
 
 // SHOW- individual medication based on id
@@ -57,9 +60,15 @@ router.put('/:drugId', async (req, res) => {
     req.body.owner = req.session.user._id
     const updatedDrug = await Drug.findByIdAndUpdate(
         req.params.drugId,
+        req.body,
         { new : true }
     )
     res.render('drugs/show', { drug : updatedDrug })
+})
+
+//calling indicaitons/new
+router.get('/<%= drug._id %>/indications/new', (req, res) => {
+    res.render('indication/new')
 })
 
 //DELETE - individual medication based on id
