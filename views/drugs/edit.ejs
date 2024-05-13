@@ -43,8 +43,9 @@
             <button class="button" type="submit">Update Medication</button>
         </form>
             <a href="/drugs/index">Back to library</a>
-         <form action="<% drug._id %>/indications/new” method=“GET”>
-            <button class="button">Add an indication</button>
+
+        <form class="form" action="/drugs/<%= drug.id %>/indications" method="GET">
+            <button class="button" type="submit">Add an indication</button>
         </form>
         </div>
     </div>

@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/user.js');
 const Indication = require('../models/indication.js');
 const Drug = require('../models/drug.js');
+const indication = require('../models/indication.js');
 
 //Index
 router.get('/index', async (req, res) => {
@@ -27,10 +28,8 @@ try {
     req.body.owner = req.session.user._id
     newDrug = await Drug.create(req.body);
     res.redirect('drugs/index');
-
        //res.redirect('drugs/index');
 } catch (error) {
-    console.log(`ERROR`)
     res.redirect(`/`)
 }
 })
@@ -66,15 +65,29 @@ router.put('/:drugId', async (req, res) => {
     res.render('drugs/show', { drug : updatedDrug })
 })
 
-//calling indicaitons/new
-router.get('/<%= drug._id %>/indications/new', (req, res) => {
-    res.render('indication/new')
+//edit indications for specific drug 
+router.get('/:drugId/indications', async (req, res) =>{
+    const drugId = await Drug.findById(req.params.drugId)
+    res.render('drugs/new-indication', {drug: drugId})
+})
+
+//POST indication to drug profile
+router.put('/:drugId/indications', async (req, res) => {
+    console.log(req.params.drugId)
+    const drug = await Drug.findById(req.params.drugId)
+    const createdIndication = await Indication.create(req.body)
+    console.log(drug)
+    console.log(createdIndication)
+    drug.indications.push(createdIndication._id)
+    await drug.save()
+    const userDrugs = await Drug.find({ owner: req.session.user._id})
+    res.render('drugs/index', {drugs: userDrugs })
 })
 
 //DELETE - individual medication based on id
 router.delete('/:drugId', async (req, res) => {
     await Drug.findByIdAndDelete(req.params.drugId)
-    res.redirect('/drugs/index')
+    res.redirect('/drugs/index' )
 })
 
 module.exports = router;

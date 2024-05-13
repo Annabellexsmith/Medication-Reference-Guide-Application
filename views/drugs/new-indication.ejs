@@ -8,8 +8,8 @@
 </head>
 <body>
     <dialog open id="updateIndications">
-        <form action="/<%= drug._id %>/indications/?_method=PUT" method="POST">
-        <p>Add a new indication:</p>
+        <form class="form" action="/drugs/<%= drug._id %>/indications?_method=PUT" method="POST">
+        <p>Add a new indication for <%= drug.genericName%> </p>
         <label for="typeOfCancer">Type of cancer:</label>
         <input type="text" name="typeOfCancer" id="typeOfCancer">
         <button class="button" type="reset">Cancel</button>
