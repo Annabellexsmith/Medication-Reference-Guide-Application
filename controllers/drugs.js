@@ -30,15 +30,15 @@ try {
     res.redirect('drugs/index');
        //res.redirect('drugs/index');
 } catch (error) {
-    res.redirect(`/`)
+    res.redirect('drugs')
 }
 })
 
 // SHOW- individual medication based on id
 router.get('/:drugId', async (req, res) => {
-    const drugId = await Drug.findById(req.params.drugId)
+    const foundDrugId = await Drug.findById(req.params.drugId)
     .populate('indications');
-    res.render('drugs/show', { drug: drugId });
+    res.render('drugs/show', { drug: foundDrugId });
 })
 
 
@@ -61,7 +61,7 @@ router.put('/:drugId', async (req, res) => {
         req.params.drugId,
         req.body,
         { new : true }
-    )
+    ).populate('indications')
     res.render('drugs/show', { drug : updatedDrug })
 })
 
