@@ -3,15 +3,15 @@ const router = express.Router();
 const User = require('../models/user.js');
 const Indication = require('../models/indication.js');
 const Drug = require('../models/drug.js');
-const indication = require('../models/indication.js');
 
-//Index
+
+//INDEX
 router.get('/index', async (req, res) => {
     const userDrugs = await Drug.find({ owner: req.session.user._id})
     res.render('drugs/index', { drugs: userDrugs});
 });
 
-//Create
+//CREATE
 router.get('/new', async (req, res) => {
     const indications = await Indication.find()
     res.render('drugs/new', { indications });
@@ -41,8 +41,7 @@ router.get('/:drugId', async (req, res) => {
     res.render('drugs/show', { drug: foundDrugId });
 })
 
-
-//Edit - individual medicaiton based on id
+//EDIT - individual medicaiton based on id
 router.get('/:drugId/edit', async (req, res) => {
     const drugId = await Drug.findById(req.params.drugId)
     .populate('indications')
@@ -65,7 +64,7 @@ router.put('/:drugId', async (req, res) => {
     res.render('drugs/show', { drug : updatedDrug })
 })
 
-//edit indications for specific drug 
+//EDIT indications for specific drug 
 router.get('/:drugId/indications', async (req, res) =>{
     const drugId = await Drug.findById(req.params.drugId)
     res.render('drugs/new-indication', {drug: drugId})

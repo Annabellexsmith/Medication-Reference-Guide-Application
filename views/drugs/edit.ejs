@@ -23,8 +23,7 @@
             </div>
             <div>
                 <label for="reactive">Potential for a hypersenitive  reaction? </label>
-                <input type="checkbox" name="reactive" id="reactive" value=" <%= drug.reactive %>"
-                 ">
+                <input type="checkbox" <% if (drug.reactive) { %> checked <% } %>  name="reactive" id="reactive">
                 <br>
             </div>
             <div>
