@@ -9,12 +9,27 @@
 <body class="container">
   <%- include('./partials/_nav.ejs') %>
   <% if (user) { %>
-        <h1>Welcome to Oncology Medication Reference Guide App, <%= user.username %>!> </h1>
+        <h1>Welcome to Oncology Medication Reference Guide App, <%= user.username %>!</h1>
+        <div class="text">
+          In this app, you can organize, store, and quickly reference information about different medications that you use as a nurse. 
+          Once you have made an account, you will be able to start creating your medication profiles. We have provided with the most common 
+          types of cancer to include for indications to medications. There is an option to create more specific indications if you 
+          choose to do so.
+          The app aims to be user friendly, so that you can provide efficient and safe care to patients. 
+          <br>
+          <br>
+          Come on in! 
+        </div>
       <% } else { %>
-        
         <h1>Welcome to Oncology Medication Reference Guide App, Guest! </h1>
         <div class="text">
-          You can organize, store, and quickly reference information about different medications that you use as a nurse.
+          In this app, you can organize, store, and quickly reference information about different medications that you use as a nurse. 
+          Once you have made an account, you will be able to start creating your medication profiles. We have provided with the most common 
+          types of cancer to include for indications to medications. There is an option to create more specific indications if you 
+          choose to do so.
+          The app aims to be user friendly, so that you can provide efficient and safe care to patients. 
+          <br>
+          <br>
           Come on in! 
         </div>
       <% } %>

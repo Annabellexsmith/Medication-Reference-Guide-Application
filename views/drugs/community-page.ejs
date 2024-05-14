@@ -3,22 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
+    <title>Community Library</title>
     <link rel="stylesheet" href="/main.css" />
 </head>
 <body class="container">
   <%- include('../partials/_nav.ejs') %>  
-  <h1> <%=user.username%>'s Library </h1>
+  <h1> Community Library </h1>
     <div class="text">
         <ul>
-            <% drugs.forEach(drug => { %>
+            <% allDrugs.forEach(drug => { %>
             <li> <a href="/drugs/<%= drug._id %>"> <%= drug.genericName %> </a></li>  
         <% });%>
         </ul>
-        <a href="/drugs/new"> 
-         
-            <button class="button" type="submit">Add a drug to the library</button>
-        </a>
     </div>
 </body>
 </html>

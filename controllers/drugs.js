@@ -8,8 +8,15 @@ const Drug = require('../models/drug.js');
 //INDEX
 router.get('/index', async (req, res) => {
     const userDrugs = await Drug.find({ owner: req.session.user._id})
+    userDrugs.sort((a, b) => { return a.genericName.localeCompare(b.genericName); });
     res.render('drugs/index', { drugs: userDrugs});
 });
+
+//INDEX for COMMUNITY page
+router.get('/community', async (req, res) => {
+    const allDrugs = await Drug.find()
+    res.render('drugs/community-page', {allDrugs})
+})
 
 //CREATE
 router.get('/new', async (req, res) => {
@@ -44,7 +51,9 @@ router.get('/:drugId', async (req, res) => {
 router.get('/:drugId/edit', async (req, res) => {
     const drugId = await Drug.findById(req.params.drugId)
     .populate('indications')
-    res.render('drugs/edit', { drug: drugId});
+    const allIndications = await Indication.find();
+    console.log(allIndications)
+    res.render('drugs/edit', { drug: drugId, allIndications });
 })
 
 ///Update - individual medication based on id
@@ -60,7 +69,8 @@ router.put('/:drugId', async (req, res) => {
         req.body,
         { new : true }
     ).populate('indications')
-    res.render('drugs/show', { drug : updatedDrug })
+  
+    res.render('drugs/show', { drug : updatedDrug} )
 })
 
 //EDIT indications for specific drug 
@@ -68,6 +78,7 @@ router.get('/:drugId/indications', async (req, res) =>{
     const drugId = await Drug.findById(req.params.drugId)
     res.render('drugs/new-indication', {drug: drugId})
 })
+
 
 //POST indication to drug profile
 router.put('/:drugId/indications', async (req, res) => {
@@ -87,5 +98,7 @@ router.delete('/:drugId', async (req, res) => {
     await Drug.findByIdAndDelete(req.params.drugId)
     res.redirect('/drugs/index' )
 })
+
+
 
 module.exports = router;

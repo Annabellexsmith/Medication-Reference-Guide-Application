@@ -1,8 +1,9 @@
+<link rel="stylesheet" href="/main.css">
 <nav id="nav">
-  <link rel="stylesheet" href="/main.css">
     <a href="/">Home</a> 
     <% if(user) { %>
       <a href="/drugs/index">Library</a> 
+      <a href="/drugs/community">Community Library</a>
       <a href="/auth/sign-out">Sign Out</a> 
     <% } else { %>
       <a href="/auth/sign-in">Sign In</a> 

@@ -1,36 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= drug.genericName %></title>
+    <title>
+        <%= drug.genericName %>
+    </title>
     <link rel="stylesheet" href="/main.css" />
 </head>
+
 <body class="container">
     <%- include('../partials/_nav.ejs') %>
-    <h1> <%= drug.genericName %> </h1>
-    <div class="text">
-      <b> Trade name: </b>  <%= drug.tradeName %>
-        <br>
-       <b> Potential for a hypersenitive reaction? </b> <input type="checkbox" <% if (drug.reactive) { %> checked <% } %> disabled>
-        <br>
-       <b> Notes: </b> <%= drug.notes %>
-        <br> 
-        <b>Indications:</b> <% drug.indications.forEach ((indication) => { %>
-            <ul>
-                <li>  <%= indication.typeOfCancer %> </li>
-                <%}) %> 
-            </ul>
-        <br>
-        <br>
-        <form class="form" action="/drugs/<%= drug.id %>/edit" method="GET">
-            <button class="button" type="submit">Edit Medication</button>
-        </form>
-        <br>
-        <form class="form" action="/drugs/<%= drug.id %>?_method=DELETE" method="POST">
-            <button class="button" type="submit">Delete Medication</button>
-        </form>
-
-</div>
+        <h1>
+            <%= drug.genericName %>
+        </h1>
+        <div class="text">
+            <b>Generic Name:</b> <%= drug.genericName %>
+            <br>
+            <b> Trade Name: </b> <%= drug.tradeName %>
+            <br>
+            <b> Potential for a hypersenitive reaction? </b> <input type="checkbox" <% if (drug.reactive) { %>
+                checked <% } %> disabled>
+            <br>
+            <b> Notes: </b> <%= drug.notes %>
+            <br>
+            <b>Indications:</b>
+                <% drug.indications.forEach ((indication)=> { %>
+                    <ul>
+                        <li>
+                             <%= indication.typeOfCancer %>
+                        </li>
+                    <%}) %>
+                    </ul>
+            <br>
+            <br>
+            <form class="form" action="/drugs/<%= drug.id %>/edit" method="GET">
+                <button class="button" type="submit">Edit Medication</button>
+            </form>
+            <br>
+            <form class="form" action="/drugs/<%= drug.id %>?_method=DELETE" method="POST">
+                <button class="button" type="submit">Delete Medication</button>
+            </form>
+         </div>
 </body>
 </html>

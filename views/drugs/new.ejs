@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Medication Profile</title>
     <link rel="stylesheet" href="/main.css" />
 </head>
+
 <body class="container">
     <%- include('../partials/_nav.ejs') %>
-    <h1> Create Your Medication Profile</h1>
-    <div class="text">
-    <form class="form" action="/drugs" method="POST">
-            <label for="genericName"><b>Generic Name:</b></label>
-            <input type="text" name="genericName" id="genericName" required >
-            <br>
-            <label for="tradeName"><b>Trade Name:</b></label>
-            <input type="text" name="tradeName" id="tradeName" required>
-            <br>
-            <label for="reactive"><b>Potential for a hypersensitivity reaction? </b></label>
-            <input type="checkbox" name="reactive" id="reactive">
-            <br>
-            <label for="notes"><b>Notes:</b></label>
-            <input type="text" name="notes" id="notes" required>
-            <br>
-            <label for="indications"><b>Indications:</b></label>
-            <select name="indications" id="indications" multiple class="selectBox">
-                <% indications.forEach (indication => { %>
-                    <option value="<%= indication._id %>"> <%= indication.typeOfCancer %> </option>
-                <% }); %>
-            </select>
-            <br>
-            <button class="button" submit">Add medication</button>
-        </form>
-    </div>
+        <h1> Create Your Medication Profile</h1>
+        <div class="text">
+            <form class="form" action="/drugs" method="POST">
+                <label for="genericName"><b>Generic Name:</b></label>
+                <input type="text" name="genericName" id="genericName" required>
+                <br>
+                <label for="tradeName"><b>Trade Name:</b></label>
+                <input type="text" name="tradeName" id="tradeName" required>
+                <br>
+                <label for="reactive"><b>Potential for a hypersensitivity reaction? </b></label>
+                <input type="checkbox" name="reactive" id="reactive">
+                <br>
+                <label for="notes"><b>Notes:</b></label>
+                <textarea type="text" name="notes" id="notes" required></textarea>
+                <br>
+                <label for="indications"><b>Indications:</b></label>
+                <select name="indications" id="indications" multiple class="selectBox">
+                    <% indications.forEach (indication=> { %>
+                        <option value="<%= indication._id %>">
+                            <%= indication.typeOfCancer %>
+                        </option>
+                        <% }); %>
+                </select>
+                <br>
+                <button class="button" submit">Add medication</button>
+            </form>
+        </div>
 </body>
-</html>
 
+</html>

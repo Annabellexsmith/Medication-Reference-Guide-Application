@@ -2,8 +2,8 @@
 
 .container {
     display: grid;
-    grid-template-columns: [clm1]250px [clm2] auto [clm3] 250px;
-    grid-template-rows: .1fr .2fr 1fr .25fr;
+    grid-template-columns: [clm1] 20% [clm2] auto [clm3] 20%;
+    grid-template-rows: .1fr .2fr auto .25fr;
     margin: 0px;
     grid-template-areas: 
     "nav nav nav"
@@ -11,12 +11,11 @@
     ". body ."
     ". . .";
     background-image: url(https://i.imgur.com/su9RM4H.png);
-    width: 100vw;
-    height: 75vw;
+    background-repeat: no-repeat;
 }
 #nav {
     grid-area: nav;
-    background-color:#E8D4C6;
+    background-color:#C2A4A3;
     /* padding: 1rem; */
     text-decoration: none;
     display: flex;
@@ -28,25 +27,26 @@
     align-items: center;
 }
 
-
 h1 {
     grid-area: header;
     background-color:#FBF2ED;
     padding: 2rem;
     text-align: center;
+    box-shadow: 10px 5px 5px rgba(191, 187, 187, 0.781);
 }
 
 .text {
     grid-area: body;
-    background-color:#fbf2edc4;
-    padding: 5rem;
+    background-color:#fbf2edf3;
+    padding: 2rem;
     font-family: "Gilda Display" 'Times New Roman';
-    font-size: larger; 
+    font-size: x-large; 
+    display: block;
+    box-shadow: 10px 5px 5px rgba(191, 187, 187, 0.781);
 }
  a {
     text-decoration: none;
     color: black;
-    /* line-height: 20px; */
  }
 
  a:hover, a:active {
@@ -67,7 +67,7 @@ h1 {
     text-align: center;
     background-color:white;
     border-radius: 25px;
-    padding: .25rem;
+    padding: .75rem;
     font-size: medium;
     border: #E8C4C6;
     

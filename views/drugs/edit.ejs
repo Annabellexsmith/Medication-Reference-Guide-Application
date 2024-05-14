@@ -22,13 +22,13 @@
                 <br>
             </div>
             <div>
-                <label for="reactive">Potential for a hypersenitive  reaction? </label>
+                <label for="reactive">Potential for a hypersensitivity reaction?</label>
                 <input type="checkbox" <% if (drug.reactive) { %> checked <% } %>  name="reactive" id="reactive">
                 <br>
             </div>
             <div>
                 <label for="notes">Notes:</label>
-                <input type="text" name="notes" id="notes" value=" <%= drug.notes %>">
+                <textarea type="text" name="notes" id="notes" ><%= drug.notes %></textarea>
                 <br>
             </div>
             <div>
