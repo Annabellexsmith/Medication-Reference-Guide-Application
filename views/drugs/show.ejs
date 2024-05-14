@@ -10,13 +10,13 @@
     <%- include('../partials/_nav.ejs') %>
     <h1> <%= drug.genericName %> </h1>
     <div class="text">
-        Trade name: <%= drug.tradeName %>
+      <b> Trade name: </b>  <%= drug.tradeName %>
         <br>
-        Potential for a hypersenitive reaction? <input type="checkbox" <% if (drug.reactive) { %> checked <% } %> disabled>
+       <b> Potential for a hypersenitive reaction? </b> <input type="checkbox" <% if (drug.reactive) { %> checked <% } %> disabled>
         <br>
-        Notes: <%= drug.notes %>
+       <b> Notes: </b> <%= drug.notes %>
         <br> 
-        Indications: <% drug.indications.forEach ((indication) => { %>
+        <b>Indications:</b> <% drug.indications.forEach ((indication) => { %>
             <ul>
                 <li>  <%= indication.typeOfCancer %> </li>
                 <%}) %> 

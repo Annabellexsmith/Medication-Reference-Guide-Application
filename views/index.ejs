@@ -7,35 +7,16 @@
     <link rel="stylesheet" href="/main.css"/>
 </head>
 <body class="container">
+  <%- include('./partials/_nav.ejs') %>
   <% if (user) { %>
-    <%- include('./partials/_nav.ejs') %>
-        <h1>Welcome to Oncology Medication Reference Guide App, <%= user.username %>!</h1>
-        <!-- <p>
-          <a href="/auth/sign-out">
-            <button class="button" type="submit">
-              Sign out
-            </button>
-          </a>
-        </p> -->
+        <h1>Welcome to Oncology Medication Reference Guide App, <%= user.username %>!> </h1>
       <% } else { %>
-        <h1>Welcome to Oncology Medication Reference Guide App, Guest!</h1>
-        <p class="text">
+        
+        <h1>Welcome to Oncology Medication Reference Guide App, Guest! </h1>
+        <div class="text">
           You can organize, store, and quickly reference information about different medications that you use as a nurse.
           Come on in! 
-          <br>
-          <br>
-          <a href="/auth/sign-in">
-            <button class="button" type="submit">
-              Sign in
-            </button>
-          </a>
-          <a href="/auth/sign-up">
-            <button class="button" type="submit">
-              Sign up
-            </button>
-          </a> 
-        
-        </p>
+        </div>
       <% } %>
 </body>
 </html>
