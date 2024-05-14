@@ -1,20 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+.container {
+    display: grid;
+    grid-template-columns: [clm1]250px [clm2] auto [clm3] 250px;
+    grid-template-rows: .25fr .75fr 2fr 1fr;
+    margin: 0px;
+    grid-template-areas: 
+    "nav nav nav"
+    ". header ."
+    ". body ."
+    ". . .";
+    /* background-size:stretch;
+    background-repeat: no-repeat; */
+    /* width: 100vw;
+    height: 100vw; */
+}
+#nav {
+    grid-area: nav;
+    background-color:#508799;
+    padding: 1rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    pointer-events:painted;
+    font-size: larger;
+    
+}
+
+#nav a:hover {
+   color:#ABDBEB;
+}
+
 h1 {
+    grid-area: header;
+    background-color:#EBABBC;
+    padding: 2rem;
     text-align: center;
 }
 
-body {
-    text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.text {
+    grid-area: body;
+    background-color: #A6A154;
+    padding: 5rem;
+    font-family: "Gilda Display" 'Times New Roman';
+    font-size: larger;
 }
 
+ul {
+    text-decoration: none;
+}
+#nav a{
+    text-decoration: none;
+    font-family: "Josefine-Sans", 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    display: inline-grid;
+    padding: 0.5em;
+    color: black
+   
+}
 .button {
     text-align: center;
-    background-color: deeppink;
+    background-color:#EBABBC;
     border-radius: 25px;
+    padding: 1em;
     font-size: medium;
+    border: #cf99a8;
 }
 
 .selectBox{

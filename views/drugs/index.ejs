@@ -6,10 +6,10 @@
     <title>Library</title>
     <link rel="stylesheet" href="/main.css" />
 </head>
-<body>
-    <%- include('../partials/_nav.ejs') %>
+<body class="container">
+  <%- include('../partials/_nav.ejs') %>  
+  <h1>Here is the library of all your drugs</h1>
     <div class="text">
-        <h1>Here is the library of all your drugs</h1>
         <ul>
             <% drugs.forEach(drug => { %>
             <li><a href="/drugs/<%= drug._id %>"> <%= drug.genericName %> </a></li>  

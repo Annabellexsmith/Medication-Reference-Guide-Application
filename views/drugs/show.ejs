@@ -6,7 +6,7 @@
     <title><%= drug.genericName %></title>
     <link rel="stylesheet" href="/main.css" />
 </head>
-<body>
+<body class="container">
     <%- include('../partials/_nav.ejs') %>
     <h1> <%= drug.genericName %> </h1>
     <p>
@@ -17,12 +17,10 @@
         Notes: <%= drug.notes %>
         <br> 
         Indications: <% drug.indications.forEach ((indication) => { %>
-            <% if (drug.indications.length >= 2) { %>
-                    <%= indication.typeOfCancer %>,
-                <% } else {%>
-                    <%= indication.typeOfCancer %>
-                    <% } %>
+            <ul>
+                <li>  <%= indication.typeOfCancer %> </li>
                 <%}) %> 
+            </ul>
     </p>
     
     <form class="form" action="/drugs/<%= drug.id %>/edit" method="GET">

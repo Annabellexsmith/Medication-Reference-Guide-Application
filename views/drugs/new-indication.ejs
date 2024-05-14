@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/main.css" />
     <title>New Indication</title>
 </head>
-<body>
+<body class="container">
     <dialog open id="updateIndications">
         <form class="form" action="/drugs/<%= drug._id %>/indications?_method=PUT" method="POST">
         <p>Add a new indication for <%= drug.genericName%> </p>
