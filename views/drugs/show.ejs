@@ -9,7 +9,7 @@
 <body class="container">
     <%- include('../partials/_nav.ejs') %>
     <h1> <%= drug.genericName %> </h1>
-    <p>
+    <div class="text">
         Trade name: <%= drug.tradeName %>
         <br>
         Potential for a hypersenitive reaction? <input type="checkbox" <% if (drug.reactive) { %> checked <% } %> disabled>
@@ -21,13 +21,16 @@
                 <li>  <%= indication.typeOfCancer %> </li>
                 <%}) %> 
             </ul>
-    </p>
-    
-    <form class="form" action="/drugs/<%= drug.id %>/edit" method="GET">
-        <button class="button" type="submit">Edit Medication</button>
-    </form>
-    <form class="form" action="/drugs/<%= drug.id %>?_method=DELETE" method="POST">
-        <button class="button" type="submit">Delete Medication</button>
-    </form>
+        <br>
+        <br>
+        <form class="form" action="/drugs/<%= drug.id %>/edit" method="GET">
+            <button class="button" type="submit">Edit Medication</button>
+        </form>
+        <br>
+        <form class="form" action="/drugs/<%= drug.id %>?_method=DELETE" method="POST">
+            <button class="button" type="submit">Delete Medication</button>
+        </form>
+
+</div>
 </body>
 </html>

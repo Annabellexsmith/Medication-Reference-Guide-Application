@@ -9,28 +9,20 @@
 <body class="container">
     <%- include('../partials/_nav.ejs') %>
     <h1> Create Your Medication Profile</h1>
+    <div class="text">
     <form class="form" action="/drugs" method="POST">
-        <div>
             <label for="genericName">Generic Name:</label>
             <input type="text" name="genericName" id="genericName" required>
             <br>
-        </div>
-        <div>
             <label for="tradeName">Trade Name:</label>
             <input type="text" name="tradeName" id="tradeName" required>
             <br>
-        </div>
-        <div>
             <label for="reactive">Potential for a hypersensitivity reaction?</label>
             <input type="checkbox" name="reactive" id="reactive">
             <br>
-        </div>
-        <div>
             <label for="notes">Notes:</label>
             <input type="text" name="notes" id="notes" required>
             <br>
-        </div>
-        <div>
             <label for="indications">Indications:</label>
             <select name="indications" id="indications" multiple class="selectBox">
                 <% indications.forEach (indication => { %>
@@ -38,12 +30,9 @@
                 <% }); %>
             </select>
             <br>
-            <br>
-        </div>
-        <button type="submit">Add medication</button>
-    </form>
-  
-
+            <button class="button" submit">Add medication</button>
+        </form>
+    </div>
 </body>
 </html>
 

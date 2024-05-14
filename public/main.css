@@ -3,7 +3,7 @@
 .container {
     display: grid;
     grid-template-columns: [clm1]250px [clm2] auto [clm3] 250px;
-    grid-template-rows: .25fr .75fr 2fr 1fr;
+    grid-template-rows: .1fr .2fr 1fr .25fr;
     margin: 0px;
     grid-template-areas: 
     "nav nav nav"
@@ -12,8 +12,8 @@
     ". . .";
     /* background-size:stretch;
     background-repeat: no-repeat; */
-    /* width: 100vw;
-    height: 100vw; */
+    width: 100vw;
+    height: 75vw;
 }
 #nav {
     grid-area: nav;
@@ -24,31 +24,32 @@
     justify-content: space-between;
     pointer-events:painted;
     font-size: larger;
-    
-}
-
-#nav a:hover {
-   color:#ABDBEB;
 }
 
 h1 {
     grid-area: header;
-    background-color:#EBABBC;
+    background-color:#E8C4C6;
     padding: 2rem;
     text-align: center;
 }
 
 .text {
     grid-area: body;
-    background-color: #A6A154;
+    background-color: #a6a154a9;
     padding: 5rem;
     font-family: "Gilda Display" 'Times New Roman';
     font-size: larger;
+    height:75vh
 }
-
-ul {
+ a {
     text-decoration: none;
-}
+    color: black;
+ }
+
+ a:hover, a:active {
+   font-size: 130%;
+ }
+
 #nav a{
     text-decoration: none;
     font-family: "Josefine-Sans", 'Times New Roman', Times, serif;
@@ -58,15 +59,16 @@ ul {
     color: black
    
 }
+
 .button {
     text-align: center;
-    background-color:#EBABBC;
+    background-color:#E8C4C6;
     border-radius: 25px;
-    padding: 1em;
+    padding: .25rem;
     font-size: medium;
-    border: #cf99a8;
+    border: #E8C4C6;
+    
 }
-
 .selectBox{
     width: 100px;
     height: 100px;

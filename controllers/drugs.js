@@ -28,7 +28,6 @@ try {
     req.body.owner = req.session.user._id
     newDrug = await Drug.create(req.body);
     res.redirect('drugs/index');
-       //res.redirect('drugs/index');
 } catch (error) {
     res.redirect('drugs')
 }

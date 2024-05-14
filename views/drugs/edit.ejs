@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="/main.css" />
 </head>
 <body class="container">
+    <%- include('../partials/_nav.ejs') %>
+    <h1> Edit Your Medication Profile</h1>
     <div class="text">
-        <%- include('../partials/_nav.ejs') %>
-        <h1> Edit Your Medication Profile</h1>
         <form class="form" action="/drugs/<%= drug.id %>?_method=PUT" method="POST">
             <div>
                 <label for="genericName">Generic Name:</label>
@@ -41,8 +41,7 @@
             </div>
             <button class="button" type="submit">Update Medication</button>
         </form>
-            <a href="/drugs/index">Back to library</a>
-
+        
         <form class="form" action="/drugs/<%= drug.id %>/indications" method="GET">
             <button class="button" type="submit">Add an indication</button>
         </form>
