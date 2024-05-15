@@ -20,8 +20,7 @@
     text-decoration: none;
     display: flex;
     justify-content: space-evenly;
-    pointer-events:painted;
-    font-size: larger;
+    font-size: x-large;
     padding: 0px;
     height: 0.1fr;
     align-items: center;
@@ -37,7 +36,7 @@ h1 {
 
 .text {
     grid-area: body;
-    background-color:#fbf2edf3;
+    background-color:#fbf2edef;
     padding: 2rem;
     font-family: "Gilda Display" 'Times New Roman';
     font-size: x-large; 
@@ -82,3 +81,10 @@ h1 {
    width:50%;
    height: 10rem;
 }
+
+input[type="checkbox"] {
+    width: 1.5rem;
+    height: 1.5rem;
+    accent-color: rgb(251, 0, 0);
+}
+

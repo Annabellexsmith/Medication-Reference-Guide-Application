@@ -24,7 +24,7 @@
             <br>
             <br>
             <b> Potential for a hypersenitive reaction? </b> <input type="checkbox" <% if (drug.reactive) { %>
-                checked <% } %> disabled>
+                checked <% } %> onclick="return false" class="checkbox">
             <br>
             <br>
             <b> Notes: </b> <%= drug.notes %>
