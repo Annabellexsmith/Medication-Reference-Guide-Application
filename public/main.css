@@ -3,7 +3,7 @@
 .container {
     display: grid;
     grid-template-columns: [clm1] 20% [clm2] auto [clm3] 20%;
-    grid-template-rows: .1fr .2fr auto .25fr;
+    grid-template-rows: /*.1fr .2fr auto .25fr;*/ auto;
     margin: 0px;
     grid-template-areas: 
     "nav nav nav"
@@ -15,8 +15,7 @@
 }
 #nav {
     grid-area: nav;
-    background-color:#C2A4A3;
-    /* padding: 1rem; */
+    background-color:#F2D8CE;
     text-decoration: none;
     display: flex;
     justify-content: space-evenly;

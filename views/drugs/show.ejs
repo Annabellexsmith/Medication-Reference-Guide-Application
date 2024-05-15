@@ -35,13 +35,19 @@
                     </ul>
             <br>
             <br>
-            <form class="form" action="/drugs/<%= drug.id %>/edit" method="GET">
-                <button class="button" type="submit">Edit Medication</button>
-            </form>
-            <br>
-            <form class="form" action="/drugs/<%= drug.id %>?_method=DELETE" method="POST">
-                <button class="button" type="submit">Delete Medication</button>
-            </form>
+            <div>
+                <% if (drug.owner._id.equals(user._id)) {%>
+                <form class="form" action="/drugs/<%= drug.id %>/edit" method="GET">
+                    <button class="button" type="submit">Edit Medication</button>
+                </form>
+                <br>
+                <form class="form" action="/drugs/<%= drug.id %>?_method=DELETE" method="POST">
+                    <button class="button" type="submit">Delete Medication</button>
+                </form>
+                <% } else { %>
+                <p><%= drug.owner.username  %> made this profile.</p>
+                <% } %>
+            </div>
          </div>
 </body>
 </html>

@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user.js');
+// const User = require('../models/user.js');
 const Indication = require('../models/indication.js');
 const Drug = require('../models/drug.js');
+const drug = require('../models/drug.js');
 
 
 //INDEX
@@ -14,7 +15,7 @@ router.get('/index', async (req, res) => {
 
 //INDEX for COMMUNITY page
 router.get('/community', async (req, res) => {
-    const allDrugs = await Drug.find()
+    const allDrugs = await Drug.find();
     res.render('drugs/community-page', {allDrugs})
 })
 
@@ -43,7 +44,7 @@ try {
 // SHOW- individual medication based on id
 router.get('/:drugId', async (req, res) => {
     const foundDrugId = await Drug.findById(req.params.drugId)
-    .populate('indications');
+    .populate('indications').populate('owner');
     res.render('drugs/show', { drug: foundDrugId });
 })
 
@@ -52,7 +53,7 @@ router.get('/:drugId/edit', async (req, res) => {
     const drugId = await Drug.findById(req.params.drugId)
     .populate('indications')
     const allIndications = await Indication.find();
-    console.log(allIndications)
+    // console.log(allIndications)
     res.render('drugs/edit', { drug: drugId, allIndications });
 })
 
