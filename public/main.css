@@ -13,6 +13,7 @@
     background-image: url(https://i.imgur.com/su9RM4H.png);
     background-repeat: no-repeat;
 }
+
 #nav {
     grid-area: nav;
     background-color:#F2D8CE;
@@ -40,9 +41,9 @@ h1 {
     padding: 2rem;
     font-family: "Gilda Display" 'Times New Roman';
     font-size: x-large; 
-    display: block;
     box-shadow: 10px 5px 5px rgba(191, 187, 187, 0.781);
 }
+
  a {
     text-decoration: none;
     color: black;
@@ -72,7 +73,12 @@ h1 {
     
 }
 .selectBox{
-    width: 100px;
+    width: 150px;
     height: 100px;
     text-align: center;
+}
+
+.notesBox{
+   width:50%;
+   height: 10rem;
 }

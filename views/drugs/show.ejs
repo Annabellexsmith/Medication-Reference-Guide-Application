@@ -18,21 +18,23 @@
         <div class="text">
             <b>Generic Name:</b> <%= drug.genericName %>
             <br>
+            <br>
             <b> Trade Name: </b> <%= drug.tradeName %>
+            <br>
             <br>
             <b> Potential for a hypersenitive reaction? </b> <input type="checkbox" <% if (drug.reactive) { %>
                 checked <% } %> disabled>
             <br>
+            <br>
             <b> Notes: </b> <%= drug.notes %>
+            <br>       
             <br>
             <b>Indications:</b>
-                <% drug.indications.forEach ((indication)=> { %>
-                    <ul>
-                        <li>
-                             <%= indication.typeOfCancer %>
-                        </li>
-                    <%}) %>
-                    </ul>
+            <% drug.indications.forEach ((indication)=> { %>
+                <li>
+                    <%= indication.typeOfCancer %>
+                </li>
+                <%}) %>
             <br>
             <br>
             <div>
