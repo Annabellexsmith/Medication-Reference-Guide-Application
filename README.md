@@ -27,6 +27,8 @@ Stay tune for a link to access the application through Heroku!
 ## Snapshots from the application:
 
 <img src="https://i.imgur.com/5NSRCTP.png" alt="User's drug library with all their generic drug names listed">
+
+
 <img src="https://i.imgur.com/1wRyaVj.png" alt="Obinutuzumab drug profile with different specs listed">
 
 ## Getting started: 
@@ -56,12 +58,13 @@ Below are the wireframes, ERD's, and route tables that were used to help plan th
 
 ## Attributions: 
 https://github.com/amarpan/how-to-write-a-README was utilized to make this README!
+
 https://www.canva.com/ was utilized to make the icon & background for the website. 
 
 ## Next Steps:
 
-&#9745; Be able to browse other user’s medication libraries.
+&#9745; Be able to browse other nurses' medication libraries.
 
 &#9744;  Adapt the app to be cell phone compatible.
 
-&#9744;  Include a view page for resorces that would include URLs for MicroMedex, UpToDate, and other relivent websites for best practice.
+&#9744;  Include a view page for resorces that would include URLs for MicroMedex, UpToDate, and other relevant websites for best practice.

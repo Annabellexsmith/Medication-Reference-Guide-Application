@@ -82,8 +82,9 @@ router.put('/:drugId/indications', async (req, res) => {
     const createdIndication = await Indication.create(req.body);
     drug.indications.push(createdIndication._id);
     await drug.save();
-    const userDrugs = await Drug.find({ owner: req.session.user._id });
-    res.render('drugs/index', {drugs: userDrugs });
+    const foundDrugId = await Drug.findById(req.params.drugId)
+    .populate('indications').populate('owner');
+    res.render('drugs/show', { drug: foundDrugId });
 });
 
 //DELETE - individual medication based on Id
