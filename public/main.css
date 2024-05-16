@@ -50,7 +50,10 @@ h1 {
 
  a:hover, a:active {
     transform: scale(1.2);
+    color:#c71585;
  }
+
+
 
 #nav a{
     text-decoration: none;
@@ -68,6 +71,7 @@ h1 {
     padding: .75rem;
     font-size: medium;
     border: #E8C4C6;
+    box-shadow: 5px 5px 5px rgba(164, 161, 161, 0.781);
 }
 
 .selectBox{
