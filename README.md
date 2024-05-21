@@ -12,17 +12,11 @@ Assembly.
 </div>
 
 ## Instructions: 
+You can find the website here: https://oncology-med-reference-7a60a1549bd8.herokuapp.com/
 
-1. Clone the respository to your local enviroment.
-2. Install all of the required packages.
-3. Set up your personal .env file with the PORT=3000, MONGODBURI="your-personal-URL", & SESSION_SECRET="your-personal-key". 
-4. Start Nodemon and go to "http://localhost:3000" in your browser of choice. 
-4. Create a profile! 
-5. Start creating medication profiles and explore the community library!
+Make sure that you create a user profile with a password at least 8 characters long. 
 
 Cheers! 
-Stay tune for a link to access the application through Heroku! 
-
 
 ## Snapshots from the application:
 
