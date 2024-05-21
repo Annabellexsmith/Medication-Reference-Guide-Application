@@ -75,7 +75,6 @@ router.get('/:drugId/indications', async (req, res) => {
     res.render('drugs/new-indication', { drug: drugId });
 });
 
-
 //POST indication to drug profile
 router.put('/:drugId/indications', async (req, res) => {
     const drug = await Drug.findById(req.params.drugId);

@@ -21,6 +21,10 @@ const drugsController = require('./controllers/drugs.js');
 const isSignedIn = require('./middleware/is-signed-in');
 const passUserToView = require('./middleware/pass-user-to-view');
 
+if(process.env.ON_HEROKU === 'false') {
+    app.use(morgan('dev'))
+}
+
 app.use(morgan('dev'));
 app.use(express.urlencoded ({ extended: false}));
 app.use(methodOverride('_method'));
