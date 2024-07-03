@@ -1,5 +1,5 @@
-# Medication-Reference-Guide-Application
-Medication Reference Guide is a MEN Stacked CRUD application which I completed during my time in the Software Engineering Bootcamp at General Assembly. 
+# Rx Remix
+Rx Remix is a MEN Stacked CRUD application which I completed during my time in the Software Engineering Bootcamp at General Assembly. 
 This project was inspired by my time working as an Oncology nurse. As a nurse, you administer a wide range of medications
 and need to be able to give it safely. As such, there is a variety of ways nurses keep their notes on different medications. 
 This project is combination of my passion for ensuring patients receive safe and effient care with my skills I'm learning at General 
@@ -12,8 +12,7 @@ Assembly.
 </div>
 
 ## Instructions: 
-You can find the website here: https://oncology-med-reference-7a60a1549bd8.herokuapp.com/
-
+You can find the website here: https://rx-remix-a5970d775514.herokuapp.com/
 Make sure that you create a user profile with a password at least 8 characters long. 
 
 Cheers! 
